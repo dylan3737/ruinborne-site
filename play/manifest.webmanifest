@@ -1,0 +1,12 @@
+{
+  "name": "Ruinborne",
+  "short_name": "Ruinborne",
+  "description": "Keep the job. Lose the run. A pastel dive through the ruin.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#2c283c",
+  "theme_color": "#2c283c",
+  "icons": [{ "src": "apple-touch-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }]
+}
