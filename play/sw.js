@@ -2,7 +2,8 @@
 // the "pages" build). Stale-while-revalidate: whatever was cached plays at
 // once, offline too, and the newest version is fetched behind it for the
 // next launch.
-const CACHE = "ruinborne";
+// Bump on every release so old hashed assets are dropped.
+const CACHE = "ruinborne-1.6.0";
 
 // At install, every file of the game (precache.json, written by
 // scripts/pages.mjs), so it plays offline from the first launch.
@@ -15,7 +16,14 @@ self.addEventListener("install", (e) => {
       .catch(() => undefined),
   );
 });
-self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
+self.addEventListener("activate", (e) =>
+  e.waitUntil(
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith("ruinborne") && k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim()),
+  ),
+);
 
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET" || new URL(e.request.url).origin !== self.location.origin) return;
