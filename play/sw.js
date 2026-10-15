@@ -2,9 +2,9 @@
 // the "pages" build). Stale-while-revalidate: whatever was cached plays at
 // once, offline too, and the newest version is fetched behind it for the
 // next launch.
-// "1.6.0-718a211f" is replaced by scripts/pages.mjs with the package
+// "1.6.0-950ab661" is replaced by scripts/pages.mjs with the package
 // version plus a hash of the build, so each release gets a fresh cache.
-const CACHE = "ruinborne-1.6.0-718a211f";
+const CACHE = "ruinborne-1.6.0-950ab661";
 
 // At install, every file of the game (precache.json, written by
 // scripts/pages.mjs), so it plays offline from the first launch.
