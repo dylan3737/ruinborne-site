@@ -21,28 +21,131 @@
 <meta name="twitter:image" content="https://dylan3737.github.io/ruinborne-site/icon.png" />
 <link rel="icon" href="icon.png" />
 <style>
-  :root { --bg: #f7f3fa; --ink: #2a2238; --soft: #6b6080; --accent: #c2185b; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #2c283c; --ink: #f4eef8; --soft: #b9adc9; --accent: #ff7aa2; } }
+  :root { --bg: #f7f3fa; --bg2: #efe7f4; --card: #ffffff; --ink: #2a2238; --soft: #6b6080; --accent: #c2185b; --rose: #f3c6d3; --mint: #cdeee0; --lilac: #ddd0f2; --line: #e3d9ea; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #2c283c; --bg2: #353047; --card: #3b3550; --ink: #f4eef8; --soft: #b9adc9; --accent: #ff7aa2; --rose: #5a3f55; --mint: #35514a; --lilac: #463d63; --line: #4a4360; } }
+  * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 680px; margin: 0 auto; padding: 64px 16px; text-align: center; }
-  img { width: 120px; height: 120px; border-radius: 26px; }
-  h1 { font-size: 2.4rem; margin: 16px 0 4px; }
-  p { color: var(--soft); margin: 0 0 24px; }
   a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0; }
+  section.alt { background: var(--bg2); }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.4rem); margin: 14px 0 4px; letter-spacing: 0.01em; }
+  h2 { font-size: 1.7rem; margin: 0 0 8px; text-align: center; }
+  h3 { margin: 0 0 4px; font-size: 1.1rem; }
+  p { color: var(--soft); margin: 0 0 16px; }
+  .lead { text-align: center; max-width: 620px; margin: 0 auto 28px; }
+  .hero { text-align: center; padding: 56px 0 40px; background: linear-gradient(160deg, var(--rose), var(--lilac) 55%, var(--mint)); }
+  .hero .icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 8px 24px rgb(60 30 70 / 0.2); }
+  .hero .tag { font-size: 1.2rem; color: var(--ink); opacity: 0.85; }
+  .hero .shot { display: block; width: 100%; height: auto; max-width: 900px; margin: 32px auto 0; border-radius: 16px; box-shadow: 0 16px 40px rgb(60 30 70 / 0.28); }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0; }
+  .btn { display: inline-block; padding: 12px 26px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); opacity: 0.85; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .card p { margin: 0; font-size: 0.95rem; }
+  .gallery { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
+  figcaption { font-size: 0.85rem; color: var(--soft); margin-top: 6px; text-align: center; }
+  .acts { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .act { border-radius: 16px; padding: 16px; color: #2a2238; }
+  .act b { display: block; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+  .act h3 { color: #2a2238; }
+  .act p { color: #4a4058; margin: 0; font-size: 0.92rem; }
+  .a1 { background: #f6d6c8; } .a2 { background: #e7d3e6; } .a3 { background: #d9d4f0; } .a4 { background: #c6e8e4; } .a5 { background: #cfd3f4; }
+  .job { border-left: 5px solid var(--c); }
+  .job small { display: block; color: var(--soft); font-size: 0.82rem; margin-top: 8px; }
+  .install p { margin: 0 0 8px; }
+  footer { text-align: center; padding: 32px 0 48px; color: var(--soft); }
 </style>
 </head>
 <body>
-<main>
-  <img src="icon.png" alt="Ruinborne icon" />
-  <h1>Ruinborne</h1>
-  <p>Keep the job. Lose the run. A pastel roguelite dive through five acts.</p>
-  <p><a href="play/"><strong>Play in your browser</strong></a></p>
-  <p><strong>Install it like an app</strong><br />
-    iPhone / iPad: open the game in Safari, tap Share, then Add to Home Screen.<br />
-    Android: open the game in Chrome, tap the ⋮ menu, then Install app (or Add to Home screen).<br />
-    Desktop (Chrome / Edge): open the game and click the install icon in the address bar.</p>
-  <p><a href="play/">Open the game to install it</a></p>
-  <p><a href="privacy.html">Privacy policy</a> · <a href="mailto:dylthesage@gmail.com">Contact</a></p>
-</main>
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="icon.png" alt="Ruinborne icon" />
+    <h1>Ruinborne</h1>
+    <p class="tag">Keep the job. Lose the run. A pastel roguelite dive through five acts.</p>
+    <div class="btns">
+      <a class="btn" href="play/">Play free in your browser</a>
+      <a class="btn ghost" href="#install">Install it like an app</a>
+    </div>
+    <img class="shot" src="screens/act2-reaper.jpg" width="1280" height="720" alt="A Reaper fighting a swarm in the Ash Vaults" />
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What it is</h2>
+    <p class="lead">Pick a job at the Threshold, dive through the ruin chamber by chamber, and take what you can. Relics, curses and life end with the run. Your levels, classes, skills, weapons and familiars stay.</p>
+    <div class="grid">
+      <div class="card"><h3>Twin-stick fights</h3><p>Move with one stick and aim with the other. Each job has a dash, a cape spin and its own signature Y-skill.</p></div>
+      <div class="card"><h3>Six jobs, 18 weapons</h3><p>Each weapon changes your basic attack and gives you its own four-tier skill line.</p></div>
+      <div class="card"><h3>Progress that sticks</h3><p>Job levels to 50, four class tiers per job, skill loadouts, familiars with talents, and Ruin Rank.</p></div>
+      <div class="card"><h3>A different run every time</h3><p>Choose your next chamber by its sigil, collect relics and sets, take on curses for rewards, and swap jobs at a crystal mid-run.</p></div>
+      <div class="card"><h3>Endless, Oaths and more</h3><p>Oaths make the game harder for bigger rewards. Endless loops the acts deeper and deeper. Daily and weekly dives, plus a Codex of everything you've met.</p></div>
+      <div class="card"><h3>Plays anywhere</h3><p>Touch, keyboard and mouse, or a gamepad. Runs in the browser, installs like an app, and saves on your device.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <p class="lead">Taken straight from the game.</p>
+    <div class="gallery">
+      <figure><img src="screens/act1-wanderer.jpg" width="1280" height="720" loading="lazy" alt="The Wanderer in the Lantern Ruin" /><figcaption>Act I, the Lantern Ruin: the Wanderer</figcaption></figure>
+      <figure><img src="screens/act3-knight.jpg" width="1280" height="720" loading="lazy" alt="The Knight in the Pale Throne" /><figcaption>Act III, the Pale Throne: the Knight</figcaption></figure>
+      <figure><img src="screens/act4-arcanist.jpg" width="1280" height="720" loading="lazy" alt="The Arcanist in the Drowned Sanctum" /><figcaption>Act IV, the Drowned Sanctum: the Arcanist</figcaption></figure>
+      <figure><img src="screens/act5-puppeteer.jpg" width="1280" height="720" loading="lazy" alt="The Puppeteer in the Starlit Spire" /><figcaption>Act V, the Starlit Spire: the Puppeteer</figcaption></figure>
+      <figure><img src="screens/act1-hunter.jpg" width="1280" height="720" loading="lazy" alt="The Hunter kiting a crowd" /><figcaption>The Hunter, kiting a crowd</figcaption></figure>
+      <figure><img src="screens/hub.jpg" width="1280" height="720" loading="lazy" alt="The Threshold, where you pick your job and dive" /><figcaption>The Threshold: pick a job, an act and a dive</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The five acts</h2>
+    <p class="lead">Each act has its own stone, light, music and boss.</p>
+    <div class="acts">
+      <div class="act a1"><b>Act I</b><h3>Lantern Ruin</h3><p>Dusty-rose courts lit by lanterns. Boss: the Ash Warden.</p></div>
+      <div class="act a2"><b>Act II</b><h3>Ash Vaults</h3><p>Sealed vaults full of ambushes. Boss: the Vault Tyrant.</p></div>
+      <div class="act a3"><b>Act III</b><h3>Pale Throne</h3><p>Pale lilac halls around the seat of ruin. Boss: the Throne of Ruin.</p></div>
+      <div class="act a4"><b>Act IV</b><h3>Drowned Sanctum</h3><p>Sea-glass floors, deep-water fog and teal light. Boss: the Drowned Saint.</p></div>
+      <div class="act a5"><b>Act V</b><h3>Starlit Spire</h3><p>Indigo stone under gold starlight, up out of the sea. Boss: the Hollow Star.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>The jobs</h2>
+    <p class="lead">Six jobs, each with four class tiers and three weapons.</p>
+    <div class="grid">
+      <div class="card job" style="--c:#c9a0dc"><h3>Wanderer</h3><p>Balanced bolts and a long dash. Mix skills from every class you've unlocked.</p><small>Thrown Dagger · Blade Spin · Glaive</small></div>
+      <div class="card job" style="--c:#8fb8f0"><h3>Arcanist</h3><p>Chain lightning that jumps further as you rank up, and fireballs that scorch the ground.</p><small>Wildfire Core · Thorned Prism · Frost Orbit</small></div>
+      <div class="card job" style="--c:#e88a9a"><h3>Reaper</h3><p>A scythe that works best in the middle of the swarm.</p><small>Scythe Arc · Vampire's Bite · Chain Sickle</small></div>
+      <div class="card job" style="--c:#9ed6a8"><h3>Hunter</h3><p>Thin, fast shots. Keep kiting and never stand still.</p><small>Hunting Arrow · Barbed Shot · Scattershot</small></div>
+      <div class="card job" style="--c:#f0cf86"><h3>Knight</h3><p>A sword that throws its own edge: crescents that cut through the line.</p><small>Oathblade · Dawn Edge · Warhammer</small></div>
+      <div class="card job" style="--c:#f0a8c0"><h3>Puppeteer</h3><p>Fights through puppets on strings that dart out, strike and come home.</p><small>Marionette · Threads · Jester Box</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="install" class="install">
+  <div class="wrap" style="max-width:680px;text-align:center">
+    <h2>Play it</h2>
+    <p class="lead">It's free, and it runs in your browser. Install it to get a home-screen icon and offline play.</p>
+    <div class="btns" style="margin-bottom:24px"><a class="btn" href="play/">Play in your browser</a></div>
+    <p><strong>iPhone / iPad:</strong> open the game in Safari, tap Share, then Add to Home Screen.</p>
+    <p><strong>Android:</strong> open the game in Chrome, tap the ⋮ menu, then Install app (or Add to Home screen).</p>
+    <p><strong>Desktop (Chrome / Edge):</strong> open the game and click the install icon in the address bar.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="privacy.html">Privacy policy</a> · <a href="mailto:dylthesage@gmail.com">Contact</a>
+</footer>
 </body>
 </html>
